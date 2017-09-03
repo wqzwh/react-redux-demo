@@ -28,11 +28,15 @@ class ControlPanel extends Component {
   }
 
   render() {
+    console.log('enter ControlPanel render');
     return (
       <div style={style}>
         <Counter onUpdate={this.onCounterUpdate} caption="First" />
         <Counter onUpdate={this.onCounterUpdate} caption="Second" initValue={this.initValues[1]} />
         <Counter onUpdate={this.onCounterUpdate} caption="Third" initValue={this.initValues[2]} />
+        <button onClick={ () => this.forceUpdate() }>
+          Click me to re-render!
+        </button>
         <hr/>
         <div>Total Count: {this.state.sum}</div>
         <ToHome/>

@@ -17,6 +17,23 @@ class Counter extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log('enter componentWillReceiveProps ' + this.props.caption)
+  }
+
+  componentWillMount() {
+    console.log('enter componentWillMount ' + this.props.caption);
+  }
+
+  componentDidMount() {
+    console.log('enter componentDidMount ' + this.props.caption);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (nextProps.caption !== this.props.caption) ||
+           (nextState.count !== this.state.count);
+  }
+
   onClickIncrementButton() {
     this.updateCount(true);
   }
@@ -34,6 +51,7 @@ class Counter extends Component {
   }
 
   render() {
+    console.log('enter render ' + this.props.caption);
     const {caption} = this.props;
     return (
       <div>
